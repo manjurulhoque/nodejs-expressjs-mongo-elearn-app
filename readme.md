@@ -1,8 +1,6 @@
-<p align="center">
-  <img src="screenshots/one.png" width="450" height="400"/>
-  <img src="screenshots/two.png" width="450" height="400"/>
-  <img src="screenshots/three.png" width="450" height="400"/>
-  <img src="screenshots/four.png" width="450" height="400"/>
-  <img src="screenshots/five.png" width="450" height="400"/>
-  <img src="screenshots/six.png" width="450" height="400"/>
-</p>
+![one](screenshots/one.png)
+![two](screenshots/two.png)
+![three](screenshots/three.png)
+![four](screenshots/four.png)
+![five](screenshots/five.png)
+![six](screenshots/six.png)
