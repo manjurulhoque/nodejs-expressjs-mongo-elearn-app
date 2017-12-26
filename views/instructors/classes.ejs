@@ -1,0 +1,27 @@
+<% layout('../layout') -%>
+
+<h1>
+    <%= instructor.first_name %>
+</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Class ID</th>
+            <th>Class name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (var i = 0; i < instructor.classes.length; i++) { %>
+            <tr>
+                <td><%= instructor.classes[i]._id %></td>
+                <td><%= instructor.classes[i].class_title %></td>
+                <td>
+                    <a class="btn btn-default" href="/classes/<%= instructor.classes[i]._id %>/details">View Lessons</a>
+                    <a class="btn btn-success" href="/classes/<%= instructor.classes[i]._id %>/lessons/new">Add Lesson</a>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

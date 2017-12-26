@@ -1,0 +1,61 @@
+<% layout('../layout') -%>
+
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2>
+                    <%= classname.title %>
+                </h2>
+                <strong>Instructor:
+                    <%= classname.instructor %>
+                </strong>
+            </div>
+            <div class="panel-body">
+                <p>
+                    <%= classname.description %>
+                </p>
+            </div>
+
+            <table class="table table-border">
+                <thead>
+                    <tr>
+                        <th>Lesson Number</th>
+                        <th>Lesson Title</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (var i = 0; i < classname.lessons.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= classname.lessons[i].lesson_number %>
+                            </td>
+                            <td>
+                                <%= classname.lessons[i].lesson_title %>
+                            </td>
+                            <td>
+                                <a href="/classes/<%= classname.lessons[i]._id %>/lessons/<%= classname.lessons[i].lesson_number %>" class="btn btn-danger">View Lesson</a>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <% if(user && usertype == 'student'){ %>
+        <form id="classRegForm" method="post" action="/students/classes/register">
+            <input type="hidden" name="student_username" value="<%= user.username %>">
+            <input type="hidden" name="class_id" value="<%= classname._id %>">
+            <input type="hidden" name="class_title" value="<%= classname.title %>">
+            <input type="submit" class="btn btn-success" value="Register For This Class">
+        </form>
+    <% } else if(usertype == 'instructor'){ %>
+        <p>
+            <em>You are not a student</em>
+        </p>
+    <% } else { %>
+        <p>
+            <em>You must login to register for this class</em>
+        </p>
+    <% } %>

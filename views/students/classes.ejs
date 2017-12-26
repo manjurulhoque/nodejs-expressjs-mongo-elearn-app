@@ -1,0 +1,24 @@
+<% layout('../layout') -%>
+
+    <h1>
+        <%= student.first_name %>
+    </h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Class ID</th>
+                <th>Class name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (var i = 0; i < student.classes.length; i++) { %>
+                <tr>
+                    <td><%= student.classes[i]._id %></td>
+                    <td><%= student.classes[i].class_title %></td>
+                    <td><a href="/classes/<%= student.classes[i]._id %>/lessons">View Lessons</a></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>

@@ -1,0 +1,8 @@
+<% layout('../layout') -%>
+
+<h2 class="text-center text-success">Classes</h2>
+<div class="row">
+    <% for (var i = 0; i < classes.length; i++) { %>
+    <% include ../partials/classes.ejs %>
+    <% } %>
+</div>
